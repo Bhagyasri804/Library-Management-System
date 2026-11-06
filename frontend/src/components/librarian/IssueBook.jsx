@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookUp, CheckCircle, AlertCircle, Calendar } from 'lucide-react';
 import { api } from '../../services/api';
+import CopyIsbnButton from '../CopyIsbnButton';
 
 export default function IssueBook({ onIssueSuccess }) {
   const [students, setStudents] = useState([]);
@@ -167,7 +168,7 @@ export default function IssueBook({ onIssueSuccess }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
                 <div><strong>Title:</strong> {selectedBook.title}</div>
                 <div><strong>Author:</strong> {selectedBook.author}</div>
-                <div><strong>ISBN:</strong> {selectedBook.isbn}</div>
+                <div><strong>ISBN:</strong> {selectedBook.isbn} <CopyIsbnButton isbn={selectedBook.isbn} /></div>
                 <div><strong>Category:</strong> {selectedBook.categoryName || 'General'}</div>
                 <div>
                   <strong>Stock:</strong>{' '}
