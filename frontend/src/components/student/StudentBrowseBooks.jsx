@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
-import { Search, BookOpen, Clock, CheckCircle, AlertTriangle, RefreshCw, Layers } from 'lucide-react';
+import { BookOpen, Clock, CheckCircle, AlertTriangle, RefreshCw, Layers } from 'lucide-react';
+import ClearableSearchInput from '../ClearableSearchInput';
 
 export default function StudentBrowseBooks({ onActionCompleted }) {
   const [books, setBooks] = useState([]);
@@ -93,17 +94,15 @@ export default function StudentBrowseBooks({ onActionCompleted }) {
       {/* Search and Filters */}
       <div className="card" style={{ marginBottom: '1.5rem', padding: '1.25rem' }}>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: '260px', position: 'relative' }}>
-            <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
-            <input
-              type="text"
-              className="input-field"
-              placeholder="Search books by title, author, ISBN..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              style={{ paddingLeft: '38px' }}
-            />
-          </div>
+          <ClearableSearchInput
+            placeholder="Search books by title, author, ISBN..."
+            ariaLabel="Search books by title, author, or ISBN"
+            value={search}
+            onChange={setSearch}
+            inputClassName="input-field"
+            inputStyle={{ paddingLeft: '38px' }}
+            wrapperStyle={{ flex: 1, minWidth: '260px' }}
+          />
 
           <div style={{ width: '220px' }}>
             <select

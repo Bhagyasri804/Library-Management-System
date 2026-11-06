@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
-import { Search, RefreshCw, CheckCircle, AlertTriangle, Clock, DollarSign, BookDown } from 'lucide-react';
+import { RefreshCw, CheckCircle, AlertTriangle, Clock, DollarSign, BookDown } from 'lucide-react';
+import ClearableSearchInput from '../ClearableSearchInput';
 
 export default function ReturnBook({ onReturnSuccess }) {
   const [issuedBooks, setIssuedBooks] = useState([]);
@@ -96,17 +97,15 @@ export default function ReturnBook({ onReturnSuccess }) {
 
       {/* Search Bar */}
       <div className="card" style={{ marginBottom: '1.5rem', padding: '1rem' }}>
-        <div style={{ position: 'relative' }}>
-          <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
-          <input
-            type="text"
-            className="input-field"
-            placeholder="Search issued books by title, student name, email, or ISBN..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ paddingLeft: '38px' }}
-          />
-        </div>
+        <ClearableSearchInput
+          placeholder="Search issued books by title, student name, email, or ISBN..."
+          ariaLabel="Search issued books by title, student name, email, or ISBN"
+          value={search}
+          onChange={setSearch}
+          inputClassName="input-field"
+          inputStyle={{ paddingLeft: '38px' }}
+          wrapperStyle={{ width: '100%', minWidth: 0 }}
+        />
       </div>
 
       {/* Issued Books Table */}
