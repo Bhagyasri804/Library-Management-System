@@ -287,15 +287,29 @@ input, select, textarea {
   border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .btn-primary {
   background: var(--primary);
   color: white;
 }
-.btn-primary:hover {
+.btn-primary:not(:disabled):not([aria-disabled="true"]):hover {
   background: var(--primary-hover);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:not(:disabled):not([aria-disabled="true"]):hover {
+  background: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:not(:disabled):not([aria-disabled="true"]):hover,
+.btn-secondary:not(:disabled):not([aria-disabled="true"]):hover {
+  transform: translateY(-1px);
+}
+.btn-primary:not(:disabled):not([aria-disabled="true"]):active,
+.btn-secondary:not(:disabled):not([aria-disabled="true"]):active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
 }
 .btn:focus-visible, .nav-btn:focus-visible, .btn-icon:focus-visible {
   outline: 2px solid var(--primary);
@@ -306,9 +320,6 @@ input, select, textarea {
   background: var(--bg-subtle);
   color: var(--text-main);
   border: 1px solid var(--border);
-}
-.btn-secondary:hover {
-  background: var(--border);
 }
 
 .btn-danger {
@@ -337,6 +348,19 @@ input, select, textarea {
 .btn-icon-danger:hover {
   background: var(--danger-light);
   color: var(--danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn-primary:not(:disabled):not([aria-disabled="true"]):hover,
+  .btn-secondary:not(:disabled):not([aria-disabled="true"]):hover,
+  .btn-primary:not(:disabled):not([aria-disabled="true"]):active,
+  .btn-secondary:not(:disabled):not([aria-disabled="true"]):active {
+    transform: none;
+  }
 }
 
 /* Forms & Inputs */
