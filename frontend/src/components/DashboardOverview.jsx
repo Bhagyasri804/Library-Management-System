@@ -11,8 +11,8 @@ export default function DashboardOverview({ stats, loading, onNavigate }) {
       title: 'Total Books',
       value: stats?.totalBooks ?? 0,
       icon: BookText,
-      color: '#2563eb',
-      bg: '#eff6ff',
+      color: 'var(--primary)',
+      bg: 'var(--primary-light)',
       target: 'books'
     },
     {
@@ -35,24 +35,24 @@ export default function DashboardOverview({ stats, loading, onNavigate }) {
       title: 'Total Students',
       value: stats?.totalStudents ?? 0,
       icon: GraduationCap,
-      color: '#6366f1',
-      bg: '#eef2ff',
+      color: 'var(--secondary)',
+      bg: 'var(--secondary-light)',
       target: 'users'
     },
     {
       title: 'Total Librarians',
       value: stats?.totalLibrarians ?? 0,
       icon: UserCheck,
-      color: '#0d9488',
-      bg: '#f0fdfa',
+      color: 'var(--secondary)',
+      bg: 'var(--secondary-light)',
       target: 'users'
     },
     {
       title: 'Total Categories',
       value: stats?.totalCategories ?? 0,
       icon: Tags,
-      color: '#8b5cf6',
-      bg: '#f5f3ff',
+      color: 'var(--secondary)',
+      bg: 'var(--secondary-light)',
       target: 'categories'
     },
   ];

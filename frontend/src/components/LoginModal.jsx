@@ -71,7 +71,7 @@ export default function LoginModal({ onLoginSuccess }) {
             style={{
               width: '56px',
               height: '56px',
-              background: '#2563eb',
+              background: 'var(--primary)',
               color: 'white',
               borderRadius: '12px',
               display: 'inline-flex',
@@ -187,7 +187,7 @@ export default function LoginModal({ onLoginSuccess }) {
               <button
                 type="button"
                 onClick={() => { setIsRegisterMode(false); setIsPasswordVisible(false); setError(''); }}
-                style={{ fontSize: '0.85rem', color: '#2563eb', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
+                style={{ fontSize: '0.85rem', color: 'var(--primary)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Already registered? Sign in here
               </button>
@@ -249,7 +249,7 @@ export default function LoginModal({ onLoginSuccess }) {
               <button
                 type="button"
                 onClick={() => { setIsRegisterMode(true); setIsPasswordVisible(false); setError(''); }}
-                style={{ fontSize: '0.85rem', color: '#2563eb', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
+                style={{ fontSize: '0.85rem', color: 'var(--primary)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Don't have an account? Register as Student
               </button>

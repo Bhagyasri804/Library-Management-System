@@ -73,16 +73,16 @@ export default function StudentFines() {
             style={{
               padding: '0.75rem 1rem',
               borderRadius: '8px',
-              backgroundColor: '#eff6ff',
-              border: '1px solid #dbeafe',
+              backgroundColor: 'var(--secondary-light)',
+              border: '1px solid var(--secondary-border)',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
               maxWidth: '340px',
             }}
           >
-            <Info size={18} color="#2563eb" style={{ flexShrink: 0 }} />
-            <span style={{ fontSize: '0.8rem', color: '#1e40af' }}>
+            <Info size={18} color="var(--secondary)" style={{ flexShrink: 0 }} />
+            <span style={{ fontSize: '0.8rem', color: 'var(--secondary-strong)' }}>
               Fines must be settled in person at the circulation desk during library working hours.
             </span>
           </div>

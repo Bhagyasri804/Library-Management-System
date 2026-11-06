@@ -11,8 +11,8 @@ export default function LibrarianOverview({ stats, loading, onNavigate }) {
       title: 'Total Books',
       value: stats?.totalBooks ?? 0,
       icon: BookText,
-      color: '#2563eb',
-      bg: '#eff6ff',
+      color: 'var(--primary)',
+      bg: 'var(--primary-light)',
       target: 'books',
     },
     {
@@ -35,8 +35,8 @@ export default function LibrarianOverview({ stats, loading, onNavigate }) {
       title: 'Registered Students',
       value: stats?.registeredStudents ?? 0,
       icon: GraduationCap,
-      color: '#6366f1',
-      bg: '#eef2ff',
+      color: 'var(--secondary)',
+      bg: 'var(--secondary-light)',
       target: 'students',
     },
   ];
@@ -70,7 +70,7 @@ export default function LibrarianOverview({ stats, loading, onNavigate }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
         <div className="table-container" style={{ padding: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-            <div style={{ background: '#eff6ff', padding: '10px', borderRadius: '10px', color: '#2563eb' }}>
+            <div style={{ background: 'var(--primary-light)', padding: '10px', borderRadius: '10px', color: 'var(--primary)' }}>
               <BookUp size={24} />
             </div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>Issue a Book</h3>

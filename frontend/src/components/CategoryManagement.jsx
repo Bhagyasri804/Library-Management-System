@@ -137,7 +137,7 @@ export default function CategoryManagement({ onActionCompleted }) {
                   <tr key={c.id}>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <Tags size={18} color="#2563eb" />
+                        <Tags size={18} color="var(--primary)" />
                         <span style={{ fontWeight: 600, color: '#1e293b' }}>{c.name}</span>
                       </div>
                     </td>
