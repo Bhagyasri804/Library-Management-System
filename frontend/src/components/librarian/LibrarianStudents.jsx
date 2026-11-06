@@ -123,7 +123,7 @@ export default function LibrarianStudents({ onActionCompleted }) {
                   <tr key={s.id}>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <div style={{ background: '#eef2ff', padding: '8px', borderRadius: '8px', color: '#4f46e5' }}>
+                        <div style={{ background: 'var(--secondary-light)', padding: '8px', borderRadius: '8px', color: 'var(--secondary)' }}>
                           <GraduationCap size={18} />
                         </div>
                         <span style={{ fontWeight: 600, color: '#1e293b' }}>{s.fullName}</span>

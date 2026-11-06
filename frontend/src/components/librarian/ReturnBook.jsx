@@ -196,7 +196,7 @@ export default function ReturnBook({ onReturnSuccess }) {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.4rem',
-                          backgroundColor: record.isOverdue ? '#dc2626' : '#2563eb'
+                          backgroundColor: record.isOverdue ? '#dc2626' : 'var(--primary)'
                         }}
                         disabled={submittingId === record.id}
                         onClick={() => handleReturn(record)}

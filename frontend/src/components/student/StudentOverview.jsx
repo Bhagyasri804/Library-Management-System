@@ -17,8 +17,8 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
       title: 'Currently Borrowed',
       value: stats?.currentlyBorrowedCount ?? 0,
       icon: BookMarked,
-      color: '#2563eb',
-      bg: '#eff6ff',
+      color: 'var(--primary)',
+      bg: 'var(--primary-light)',
       targetTab: 'borrowed',
       hint: 'Books currently with you',
     },
@@ -53,8 +53,8 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
       title: 'Active Reservations',
       value: stats?.activeReservationsCount ?? 0,
       icon: Clock,
-      color: '#8b5cf6',
-      bg: '#f5f3ff',
+      color: 'var(--secondary)',
+      bg: 'var(--secondary-light)',
       targetTab: 'reservations',
       hint: 'Reserved unavailable books',
     },
@@ -65,7 +65,7 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
       {/* Welcome Banner */}
       <div 
         style={{ 
-          background: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)', 
+          background: 'linear-gradient(135deg, var(--primary-hover) 0%, var(--secondary-strong) 100%)',
           borderRadius: '14px', 
           padding: '2rem', 
           color: 'white',
@@ -89,7 +89,7 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
             className="btn"
             style={{ 
               backgroundColor: 'white', 
-              color: '#1e3a8a', 
+              color: 'var(--primary-hover)',
               fontWeight: 600, 
               padding: '0.65rem 1.25rem',
               display: 'inline-flex',
@@ -154,7 +154,7 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#eff6ff', color: '#2563eb' }}>
+              <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: 'var(--primary-light)', color: 'var(--primary)' }}>
                 <BookOpen size={20} />
               </div>
               <div>
@@ -204,7 +204,7 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: '#f5f3ff', color: '#8b5cf6' }}>
+              <div style={{ padding: '8px', borderRadius: '6px', backgroundColor: 'var(--secondary-light)', color: 'var(--secondary)' }}>
                 <Clock size={20} />
               </div>
               <div>

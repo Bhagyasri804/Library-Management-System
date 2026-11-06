@@ -188,14 +188,16 @@ export default function StudentBrowseBooks({ onActionCompleted }) {
                     <td style={{ textAlign: 'right' }}>
                       {isOutOfStock ? (
                         <button
-                          className="btn btn-primary"
+                          className="btn btn-secondary"
                           style={{ 
                             fontSize: '0.825rem', 
                             padding: '0.45rem 0.85rem', 
                             display: 'inline-flex', 
                             alignItems: 'center', 
                             gap: '5px',
-                            backgroundColor: '#8b5cf6'
+                            backgroundColor: 'var(--secondary-light)',
+                            color: 'var(--secondary-strong)',
+                            border: '1px solid var(--secondary-border)'
                           }}
                           disabled={reservingId === book.id}
                           onClick={() => handleReserve(book)}

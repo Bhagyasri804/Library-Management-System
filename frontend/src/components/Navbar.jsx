@@ -16,7 +16,7 @@ export default function Navbar({ currentUser, onLogout, portalMode, onTogglePort
     <header className="navbar">
       <div className="brand" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <div className="brand-icon" style={{ backgroundColor: isStudent ? '#0284c7' : '#2563eb' }}>
+          <div className="brand-icon">
             {isStudent ? <GraduationCap size={22} /> : <BookOpen size={22} />}
           </div>
           <span style={{ fontWeight: 600 }}>
@@ -51,7 +51,7 @@ export default function Navbar({ currentUser, onLogout, portalMode, onTogglePort
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <User size={18} color="#64748b" />
               <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>{currentUser.fullName}</span>
-              <span className={`user-badge ${currentUser.role === 'LIBRARIAN' ? 'badge-primary' : currentUser.role === 'STUDENT' ? 'badge-info' : ''}`}>
+              <span className={`user-badge ${currentUser.role === 'STUDENT' ? 'badge-info' : 'badge-primary'}`}>
                 {currentUser.role}
               </span>
             </div>

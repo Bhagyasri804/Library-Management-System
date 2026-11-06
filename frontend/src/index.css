@@ -1,8 +1,12 @@
 :root {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
-  --secondary: #64748b;
+  --primary: #047857;
+  --primary-hover: #065f46;
+  --primary-light: #d1fae5;
+  --secondary: #0d9488;
+  --secondary-light: #ccfbf1;
+  --secondary-strong: #115e59;
+  --secondary-border: #99f6e4;
+  --focus-ring: rgba(4, 120, 87, 0.15);
   --success: #10b981;
   --success-light: #ecfdf5;
   --warning: #f59e0b;
@@ -11,8 +15,9 @@
   --danger-light: #fef2f2;
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
   --border: #e2e8f0;
-  --text-main: #0f172a;
+  --text-main: #1e293b;
   --text-muted: #64748b;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -61,7 +66,7 @@ input, select, textarea {
 
 .sidebar {
   width: 260px;
-  background: #ffffff;
+  background: var(--bg-card);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -80,7 +85,7 @@ input, select, textarea {
 /* Navbar */
 .navbar {
   height: 64px;
-  background: #ffffff;
+  background: var(--bg-card);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -97,7 +102,7 @@ input, select, textarea {
   gap: 12px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-main);
 }
 
 .brand-icon {
@@ -115,8 +120,8 @@ input, select, textarea {
 }
 
 .user-badge {
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--primary-light);
+  color: var(--primary);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 10px;
@@ -141,7 +146,7 @@ input, select, textarea {
 }
 
 .nav-btn:hover {
-  background: #f1f5f9;
+  background: var(--bg-subtle);
   color: var(--text-main);
 }
 
@@ -225,7 +230,7 @@ input, select, textarea {
 }
 
 .data-table th {
-  background: #f8fafc;
+  background: var(--bg-main);
   padding: 14px 20px;
   font-weight: 600;
   color: var(--text-muted);
@@ -242,7 +247,7 @@ input, select, textarea {
 }
 
 .data-table tr:hover {
-  background: #f8fafc;
+  background: var(--bg-main);
 }
 
 /* Badges */
@@ -259,6 +264,7 @@ input, select, textarea {
 .badge-danger { background: var(--danger-light); color: var(--danger); }
 .badge-warning { background: var(--warning-light); color: var(--warning); }
 .badge-primary { background: var(--primary-light); color: var(--primary); }
+.badge-info { background: var(--secondary-light); color: var(--secondary-strong); }
 
 /* Buttons */
 .btn {
@@ -280,14 +286,18 @@ input, select, textarea {
 .btn-primary:hover {
   background: var(--primary-hover);
 }
+.btn:focus-visible, .nav-btn:focus-visible, .btn-icon:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
 
 .btn-secondary {
-  background: #f1f5f9;
-  color: #334155;
+  background: var(--bg-subtle);
+  color: var(--text-main);
   border: 1px solid var(--border);
 }
 .btn-secondary:hover {
-  background: #e2e8f0;
+  background: var(--border);
 }
 
 .btn-danger {
@@ -310,7 +320,7 @@ input, select, textarea {
   display: inline-flex;
 }
 .btn-icon:hover {
-  background: #f1f5f9;
+  background: var(--bg-subtle);
   color: var(--text-main);
 }
 .btn-icon-danger:hover {
@@ -337,14 +347,14 @@ input, select, textarea {
   padding: 9px 14px 9px 38px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  background: #ffffff;
+  background: var(--bg-card);
   outline: none;
   font-size: 0.9rem;
   transition: border-color 0.2s;
 }
 .search-input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
 .form-group {
@@ -356,7 +366,7 @@ input, select, textarea {
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 6px;
-  color: #334155;
+  color: var(--text-main);
 }
 
 .form-input, .form-select, .form-textarea {
@@ -367,12 +377,12 @@ input, select, textarea {
   outline: none;
   font-size: 0.92rem;
   transition: border-color 0.2s;
-  background: #ffffff;
+  background: var(--bg-card);
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 2px var(--focus-ring);
 }
 
 .password-visibility-toggle {
@@ -383,7 +393,7 @@ input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
+  color: var(--text-muted);
   border-radius: var(--radius-sm);
 }
 
@@ -416,7 +426,7 @@ input, select, textarea {
 }
 
 .modal-card {
-  background: white;
+  background: var(--bg-card);
   width: 100%;
   max-width: 540px;
   border-radius: var(--radius-lg);
@@ -453,7 +463,7 @@ input, select, textarea {
 .modal-footer {
   padding: 16px 24px;
   border-top: 1px solid var(--border);
-  background: #f8fafc;
+  background: var(--bg-main);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -481,12 +491,12 @@ input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-main) 100%);
   padding: 20px;
 }
 
 .login-card {
-  background: white;
+  background: var(--bg-card);
   width: 100%;
   max-width: 440px;
   border-radius: var(--radius-lg);
