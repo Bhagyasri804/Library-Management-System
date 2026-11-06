@@ -150,9 +150,9 @@ export default function IssueBook({ onIssueSuccess }) {
 
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-lg"
               disabled={loading || (selectedBook && selectedBook.availableCopies <= 0)}
-              style={{ width: '100%', marginTop: '16px', padding: '12px' }}
+              style={{ width: '100%', marginTop: '16px' }}
             >
               <BookUp size={18} />
               <span>{loading ? 'Processing Checkout...' : 'Confirm & Issue Book'}</span>

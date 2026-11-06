@@ -23,6 +23,12 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --button-padding-y: 10px;
+  --button-padding-x: 18px;
+  --button-sm-padding-y: 6px;
+  --button-sm-padding-x: 12px;
+  --button-lg-padding-y: 12px;
+  --button-icon-padding: 8px;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -319,7 +325,7 @@ input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: var(--button-padding-y) var(--button-padding-x);
   border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 600;
@@ -367,12 +373,16 @@ input, select, textarea {
 }
 
 .btn-sm {
-  padding: 6px 12px;
+  padding: var(--button-sm-padding-y) var(--button-sm-padding-x);
   font-size: 0.8rem;
 }
 
+.btn-lg {
+  padding: var(--button-lg-padding-y) var(--button-padding-x);
+}
+
 .btn-icon {
-  padding: 8px;
+  padding: var(--button-icon-padding);
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   display: inline-flex;
