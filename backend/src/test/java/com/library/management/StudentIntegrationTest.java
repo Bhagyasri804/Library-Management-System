@@ -238,4 +238,46 @@ public class StudentIntegrationTest {
         assertEquals("5551234567", updated.getPhoneNumber());
         assertEquals(Role.STUDENT, updated.getRole()); // Role must remain STUDENT
     }
+
+    @Test
+    public void testStudentCannotCancelOtherStudentsReservation() throws Exception {
+        // Create another student Bob
+        User bob = new User();
+        bob.setFullName("Bob Student");
+        bob.setEmail("bob.student@univ.edu");
+        bob.setPassword(passwordEncoder.encode("Bob@123"));
+        bob.setPhoneNumber("1122334455");
+        bob.setRole(Role.STUDENT);
+        bob.setActive(true);
+        bob = userRepository.save(bob);
+        String bobToken = jwtTokenProvider.generateToken(bob);
+
+        // Reservation owned by Alice (testStudent)
+        Reservation reservation = new Reservation(unavailableBook, testStudent, LocalDate.now());
+        reservation = reservationRepository.save(reservation);
+
+        // Bob attempts to cancel Alice's reservation -> 403 Forbidden
+        mockMvc.perform(delete("/api/student/reservations/" + reservation.getId())
+                        .header("Authorization", "Bearer " + bobToken))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    public void testInactiveUserCannotAccessProtectedEndpoints() throws Exception {
+        // Deactivate student
+        testStudent.setActive(false);
+        userRepository.save(testStudent);
+
+        // Access with existing token -> 401 Unauthorized
+        mockMvc.perform(get("/api/student/dashboard")
+                        .header("Authorization", "Bearer " + studentToken))
+                .andExpect(status().isUnauthorized());
+
+        // Login attempt by deactivated user -> 401 Unauthorized
+        String loginJson = "{\"email\":\"" + testStudent.getEmail() + "\",\"password\":\"Student@123\"}";
+        mockMvc.perform(post("/api/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(loginJson))
+                .andExpect(status().isUnauthorized());
+    }
 }
