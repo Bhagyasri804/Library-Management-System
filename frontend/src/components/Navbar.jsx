@@ -34,7 +34,6 @@ export default function Navbar({ currentUser, onLogout, portalMode, onTogglePort
               alignItems: 'center', 
               gap: '6px', 
               fontSize: '0.8rem',
-              padding: '4px 10px',
               backgroundColor: '#f1f5f9'
             }}
             title="Switch between Admin Console and Librarian Desk"

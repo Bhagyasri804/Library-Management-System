@@ -190,9 +190,8 @@ export default function ReturnBook({ onReturnSuccess }) {
                     </td>
                     <td style={{ textAlign: 'right' }}>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-primary btn-sm"
                         style={{ 
-                          padding: '0.45rem 0.9rem', 
                           fontSize: '0.85rem',
                           display: 'inline-flex',
                           alignItems: 'center',

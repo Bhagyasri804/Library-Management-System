@@ -93,7 +93,6 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
               backgroundColor: 'white', 
               color: 'var(--primary-hover)',
               fontWeight: 600, 
-              padding: '0.65rem 1.25rem',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',

@@ -176,9 +176,9 @@ export default function LoginModal({ onLoginSuccess }) {
 
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-lg"
               disabled={loading}
-              style={{ width: '100%', padding: '12px', marginTop: '10px' }}
+              style={{ width: '100%', marginTop: '10px' }}
             >
               {loading ? 'Creating Student Account...' : 'Register as Student'}
             </button>
@@ -238,9 +238,9 @@ export default function LoginModal({ onLoginSuccess }) {
 
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary btn-lg"
               disabled={loading}
-              style={{ width: '100%', padding: '12px', marginTop: '10px' }}
+              style={{ width: '100%', marginTop: '10px' }}
             >
               {loading ? 'Authenticating...' : 'Sign In'}
             </button>
