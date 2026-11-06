@@ -83,6 +83,42 @@ input, select, textarea {
   width: 100%;
 }
 
+.dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.current-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--primary-light);
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  color: var(--primary-hover);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.current-date-light {
+  width: fit-content;
+  margin-top: 8px;
+  border-color: rgb(255 255 255 / 0.25);
+  background: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .dashboard-heading {
+    flex-wrap: wrap;
+  }
+}
+
 /* Navbar */
 .navbar {
   height: 64px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookText, CheckCircle2, Bookmark, GraduationCap, ArrowRight, BookUp, BookDown } from 'lucide-react';
+import CurrentDate from '../CurrentDate';
 
 export default function LibrarianOverview({ stats, loading, onNavigate }) {
   if (loading) {
@@ -43,11 +44,14 @@ export default function LibrarianOverview({ stats, loading, onNavigate }) {
 
   return (
     <div>
-      <div style={{ marginBottom: '28px' }}>
-        <h1 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Librarian Dashboard</h1>
-        <p style={{ color: '#64748b', fontSize: '0.95rem', marginTop: '4px' }}>
-          Issue and return books, inspect catalog availability, and manage student borrowers.
-        </p>
+      <div className="dashboard-heading">
+        <div>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Librarian Dashboard</h1>
+          <p style={{ color: '#64748b', fontSize: '0.95rem', marginTop: '4px' }}>
+            Issue and return books, inspect catalog availability, and manage student borrowers.
+          </p>
+        </div>
+        <CurrentDate />
       </div>
 
       <div className="stats-grid">
