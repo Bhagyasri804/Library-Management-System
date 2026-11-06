@@ -22,6 +22,7 @@ import StudentFines from './components/student/StudentFines';
 import StudentProfile from './components/student/StudentProfile';
 
 import LoginModal from './components/LoginModal';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import { api, getAuthToken, getStoredUser, removeAuthToken, setStoredUser } from './services/api';
 
 export default function App() {
@@ -207,6 +208,7 @@ export default function App() {
             )}
           </main>
         </div>
+        <ScrollToTopButton />
       </div>
     );
   }
@@ -281,6 +283,7 @@ export default function App() {
           </>
         )}
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }
