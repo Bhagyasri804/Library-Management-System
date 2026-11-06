@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { BookOpen, Lock, Mail, AlertCircle, Shield, User, Phone, CheckCircle } from 'lucide-react';
+import { BookOpen, Lock, Mail, AlertCircle, Shield, User, Phone, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import { api, setAuthToken, setStoredUser } from '../services/api';
 
 export default function LoginModal({ onLoginSuccess }) {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
   const [email, setEmail] = useState('admin@library.com');
   const [password, setPassword] = useState('Admin@123');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [fullName, setFullName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false);
@@ -59,6 +60,7 @@ export default function LoginModal({ onLoginSuccess }) {
     setPassword('Admin@123');
     setError('');
     setIsRegisterMode(false);
+    setIsPasswordVisible(false);
   };
 
   return (
@@ -136,15 +138,24 @@ export default function LoginModal({ onLoginSuccess }) {
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                 <Lock size={18} style={{ position: 'absolute', left: '12px', color: '#94a3b8' }} />
                 <input
-                  type="password"
+                  type={isPasswordVisible ? 'text' : 'password'}
                   required
                   minLength={6}
                   className="form-input"
-                  style={{ paddingLeft: '38px' }}
+                  style={{ paddingLeft: '38px', paddingRight: '42px' }}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                 />
+                <button
+                  type="button"
+                  className="password-visibility-toggle"
+                  aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
+                  aria-pressed={isPasswordVisible}
+                  onClick={() => setIsPasswordVisible((visible) => !visible)}
+                >
+                  {isPasswordVisible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+                </button>
               </div>
             </div>
 
@@ -175,7 +186,7 @@ export default function LoginModal({ onLoginSuccess }) {
             <div style={{ marginTop: '15px', textAlign: 'center' }}>
               <button
                 type="button"
-                onClick={() => { setIsRegisterMode(false); setError(''); }}
+                onClick={() => { setIsRegisterMode(false); setIsPasswordVisible(false); setError(''); }}
                 style={{ fontSize: '0.85rem', color: '#2563eb', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Already registered? Sign in here
@@ -205,14 +216,23 @@ export default function LoginModal({ onLoginSuccess }) {
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                 <Lock size={18} style={{ position: 'absolute', left: '12px', color: '#94a3b8' }} />
                 <input
-                  type="password"
+                  type={isPasswordVisible ? 'text' : 'password'}
                   required
                   className="form-input"
-                  style={{ paddingLeft: '38px' }}
+                  style={{ paddingLeft: '38px', paddingRight: '42px' }}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                 />
+                <button
+                  type="button"
+                  className="password-visibility-toggle"
+                  aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
+                  aria-pressed={isPasswordVisible}
+                  onClick={() => setIsPasswordVisible((visible) => !visible)}
+                >
+                  {isPasswordVisible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+                </button>
               </div>
             </div>
 
@@ -228,7 +248,7 @@ export default function LoginModal({ onLoginSuccess }) {
             <div style={{ marginTop: '15px', textAlign: 'center' }}>
               <button
                 type="button"
-                onClick={() => { setIsRegisterMode(true); setError(''); }}
+                onClick={() => { setIsRegisterMode(true); setIsPasswordVisible(false); setError(''); }}
                 style={{ fontSize: '0.85rem', color: '#2563eb', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Don't have an account? Register as Student
