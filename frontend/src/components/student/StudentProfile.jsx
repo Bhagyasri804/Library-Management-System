@@ -135,7 +135,7 @@ export default function StudentProfile({ currentUser, onProfileUpdated }) {
             </h3>
 
             <div className="form-group" style={{ marginBottom: '1.25rem' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: '#334155', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: '#334155' }}>
                 Full Name *
               </label>
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -153,7 +153,7 @@ export default function StudentProfile({ currentUser, onProfileUpdated }) {
             </div>
 
             <div className="form-group" style={{ marginBottom: '1.75rem' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: '#334155', marginBottom: '6px' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: '#334155' }}>
                 Phone Number
               </label>
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
