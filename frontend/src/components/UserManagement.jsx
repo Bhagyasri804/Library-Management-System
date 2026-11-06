@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { UserPlus, ToggleLeft, ToggleRight, X, Shield, GraduationCap, UserCheck, Search } from 'lucide-react';
+import { UserPlus, ToggleLeft, ToggleRight, X, Shield, GraduationCap, UserCheck } from 'lucide-react';
 import { api } from '../services/api';
+import ClearableSearchInput from './ClearableSearchInput';
 
 export default function UserManagement({ onActionCompleted }) {
   const [users, setUsers] = useState([]);
@@ -115,16 +116,12 @@ export default function UserManagement({ onActionCompleted }) {
       <div className="table-container">
         <div className="table-header-bar">
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div className="search-input-wrapper">
-              <Search size={18} />
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Search by name, email, phone..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+            <ClearableSearchInput
+              placeholder="Search by name, email, phone..."
+              ariaLabel="Search users by name, email, or phone"
+              value={searchTerm}
+              onChange={setSearchTerm}
+            />
 
             <div style={{ display: 'flex', gap: '6px' }}>
               <button

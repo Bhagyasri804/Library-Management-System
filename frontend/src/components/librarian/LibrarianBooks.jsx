@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, BookOpen } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { api } from '../../services/api';
+import ClearableSearchInput from '../ClearableSearchInput';
 
 export default function LibrarianBooks() {
   const [books, setBooks] = useState([]);
@@ -41,16 +42,12 @@ export default function LibrarianBooks() {
 
       <div className="table-container">
         <div className="table-header-bar">
-          <div className="search-input-wrapper">
-            <Search size={18} />
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search by title, author, or ISBN..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
+          <ClearableSearchInput
+            placeholder="Search by title, author, or ISBN..."
+            ariaLabel="Search books by title, author, or ISBN"
+            value={search}
+            onChange={setSearch}
+          />
           <span style={{ fontSize: '0.88rem', color: '#64748b', fontWeight: 500 }}>
             {books.length} book title{books.length !== 1 ? 's' : ''} found
           </span>

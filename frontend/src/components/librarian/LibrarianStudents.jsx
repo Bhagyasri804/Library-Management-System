@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { UserPlus, Search, X, GraduationCap } from 'lucide-react';
+import { UserPlus, X, GraduationCap } from 'lucide-react';
 import { api } from '../../services/api';
+import ClearableSearchInput from '../ClearableSearchInput';
 
 export default function LibrarianStudents({ onActionCompleted }) {
   const [students, setStudents] = useState([]);
@@ -79,16 +80,12 @@ export default function LibrarianStudents({ onActionCompleted }) {
 
       <div className="table-container">
         <div className="table-header-bar">
-          <div className="search-input-wrapper">
-            <Search size={18} />
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search students by name, email, phone..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
+          <ClearableSearchInput
+            placeholder="Search students by name, email, phone..."
+            ariaLabel="Search students by name, email, or phone"
+            value={search}
+            onChange={setSearch}
+          />
           <span style={{ fontSize: '0.88rem', color: '#64748b', fontWeight: 500 }}>
             {students.length} student{students.length !== 1 ? 's' : ''} registered
           </span>
