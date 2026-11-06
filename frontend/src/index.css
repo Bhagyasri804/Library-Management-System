@@ -9,6 +9,7 @@
   --focus-ring: rgba(4, 120, 87, 0.15);
   --success: #10b981;
   --success-light: #ecfdf5;
+  --table-row-hover: #ecfdf5;
   --warning: #f59e0b;
   --warning-light: #fffbeb;
   --danger: #ef4444;
@@ -246,8 +247,18 @@ input, select, textarea {
   vertical-align: middle;
 }
 
-.data-table tr:hover {
-  background: var(--bg-main);
+.data-table tbody tr {
+  transition: background-color 0.18s ease;
+}
+
+.data-table tbody tr:not(.selected):not([aria-selected="true"]):hover {
+  background-color: var(--table-row-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-table tbody tr {
+    transition: none;
+  }
 }
 
 /* Badges */
