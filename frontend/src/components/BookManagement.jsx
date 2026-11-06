@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, X, AlertCircle } from 'lucide-react';
 import { api } from '../services/api';
 import ClearableSearchInput from './ClearableSearchInput';
+import CopyIsbnButton from './CopyIsbnButton';
 
 export default function BookManagement({ onActionCompleted }) {
   const [books, setBooks] = useState([]);
@@ -195,6 +196,7 @@ export default function BookManagement({ onActionCompleted }) {
                       <code style={{ background: '#f1f5f9', padding: '2px 6px', borderRadius: '4px', fontSize: '0.82rem' }}>
                         {b.isbn}
                       </code>
+                      <CopyIsbnButton isbn={b.isbn} />
                     </td>
                     <td>
                       <span className="badge badge-primary">{b.categoryName || 'Unassigned'}</span>

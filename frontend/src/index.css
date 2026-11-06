@@ -415,8 +415,58 @@ input, select, textarea {
   outline-offset: 1px;
 }
 
+.isbn-copy-control {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.isbn-copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border-radius: var(--radius-sm);
+  color: var(--secondary);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.isbn-copy-button:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.isbn-copy-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.isbn-copy-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+  padding: 10px 14px;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius-md);
+  background: var(--success-light);
+  color: #065f46;
+  box-shadow: var(--shadow-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.isbn-copy-toast.error {
+  border-color: #fecaca;
+  background: var(--danger-light);
+  color: #991b1b;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .search-clear-button {
+  .search-clear-button,
+  .isbn-copy-button {
     transition: none;
   }
 }

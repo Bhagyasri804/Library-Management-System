@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { BookOpen, Clock, CheckCircle, AlertTriangle, RefreshCw, Layers } from 'lucide-react';
 import ClearableSearchInput from '../ClearableSearchInput';
+import CopyIsbnButton from '../CopyIsbnButton';
 
 export default function StudentBrowseBooks({ onActionCompleted }) {
   const [books, setBooks] = useState([]);
@@ -168,6 +169,7 @@ export default function StudentBrowseBooks({ onActionCompleted }) {
                       <code style={{ fontSize: '0.8rem', background: '#f1f5f9', padding: '2px 5px', borderRadius: '3px' }}>
                         {book.isbn}
                       </code>
+                      <CopyIsbnButton isbn={book.isbn} />
                     </td>
                     <td>
                       {isOutOfStock ? (

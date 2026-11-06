@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { RefreshCw, CheckCircle, AlertTriangle, Clock, DollarSign, BookDown } from 'lucide-react';
 import ClearableSearchInput from '../ClearableSearchInput';
+import CopyIsbnButton from '../CopyIsbnButton';
 
 export default function ReturnBook({ onReturnSuccess }) {
   const [issuedBooks, setIssuedBooks] = useState([]);
@@ -143,6 +144,7 @@ export default function ReturnBook({ onReturnSuccess }) {
                       <div style={{ fontWeight: 600, color: '#0f172a' }}>{record.bookTitle}</div>
                       <div style={{ fontSize: '0.825rem', color: '#64748b' }}>
                         by {record.bookAuthor} • <code style={{ fontSize: '0.75rem', background: '#f1f5f9', padding: '2px 4px', borderRadius: '3px' }}>ISBN: {record.bookIsbn}</code>
+                        <CopyIsbnButton isbn={record.bookIsbn} />
                       </div>
                     </td>
                     <td>

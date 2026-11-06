@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
+import CopyIsbnButton from '../CopyIsbnButton';
 import { Clock, RefreshCw, CheckCircle, AlertTriangle, XCircle, BookOpen } from 'lucide-react';
 
 export default function StudentReservations({ onActionCompleted }) {
@@ -118,6 +119,7 @@ export default function StudentReservations({ onActionCompleted }) {
                       <code style={{ fontSize: '0.8rem', background: '#f1f5f9', padding: '2px 5px', borderRadius: '3px' }}>
                         {res.bookIsbn}
                       </code>
+                      <CopyIsbnButton isbn={res.bookIsbn} />
                     </td>
                     <td>
                       <span style={{ fontSize: '0.875rem', color: '#334155' }}>{res.reservationDate}</span>
