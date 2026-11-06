@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookMarked, BookOpen, AlertTriangle, DollarSign, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import CurrentDate from '../CurrentDate';
 
 export default function StudentOverview({ stats, loading, onNavigate }) {
   if (loading) {
@@ -78,6 +79,7 @@ export default function StudentOverview({ stats, loading, onNavigate }) {
             <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.85 }}>
               Student Portal
             </span>
+            <CurrentDate className="current-date-light" />
             <h1 style={{ margin: '0.4rem 0', fontSize: '1.8rem', fontWeight: 700 }}>
               Welcome back, {stats?.studentName || 'Student'}! 👋
             </h1>
